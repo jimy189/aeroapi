@@ -80,25 +80,6 @@
 					"response": []
 				},
 				{
-					"name": "Get Voos passageiro",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/voos",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"voos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Post cadastrarVoo",
 					"request": {
 						"auth": {
@@ -202,10 +183,6 @@
 			]
 		},
 		{
-			"name": "Passageiro",
-			"item": []
-		},
-		{
 			"name": "Passagem",
 			"item": [
 				{
@@ -264,7 +241,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroVoo\": 200,\r\n            \"origem\": \"Salvador Bahia Airport\",\r\n            \"destino\": \"Aeroporto Internacional de São Paulo-Guarulhos\",\r\n            \"passageiro\": 1,\r\n            \"despachoBagagem\": true\r\n}     ",
+							"raw": "{ \r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroVoo\": \"1\",\r\n            \"origem\": \"Salvador Bahia Airport\",\r\n            \"destino\": \"Aeroporto Internacional de São Paulo-Guarulhos\",\r\n            \"passageiro\": 1,\r\n            \"despachoBagagem\": true\r\n}     ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -293,7 +270,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroBagagem\": \"1\",\r\n            \"nomePassageiro\": \"Renato Marcelo\"\r\n}  ",
+							"raw": "{ \r\n            \"numeroVoo\": \"1\",\r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroBagagem\": \"1\",\r\n            \"nomePassageiro\": \"Renato Marcelo\"\r\n}  ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -351,7 +328,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/passagem/cancelarcompra?idPassagemidPassagem=1&idVoo=550&cpf",
+							"raw": "http://localhost:8080/passagem/cancelarcompra?idPassagem=1&idVoo=1&cpf=9999",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -363,16 +340,16 @@
 							],
 							"query": [
 								{
-									"key": "idPassagemidPassagem",
+									"key": "idPassagem",
 									"value": "1"
 								},
 								{
 									"key": "idVoo",
-									"value": "550"
+									"value": "1"
 								},
 								{
 									"key": "cpf",
-									"value": null
+									"value": "9999"
 								}
 							]
 						}
@@ -416,7 +393,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/passagem/passageirolistavoo?idVoo=1",
+							"raw": "http://localhost:8080/passagem/cpf?cpf=999999",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,12 +401,12 @@
 							"port": "8080",
 							"path": [
 								"passagem",
-								"passageirolistavoo"
+								"cpf"
 							],
 							"query": [
 								{
-									"key": "idVoo",
-									"value": "1"
+									"key": "cpf",
+									"value": "999999"
 								},
 								{
 									"key": "",
@@ -546,7 +523,7 @@
 			"name": "login",
 			"item": [
 				{
-					"name": "Registra Usuario",
+					"name": "body",
 					"request": {
 						"method": "POST",
 						"header": [],
