@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "45061b61-59a1-48d3-b370-3d7d0ea4e1b2",
+		"name": "aeroapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19002117"
+	},
+	"item": [
+		{
+			"name": "aeroportos",
+			"item": [
+				{
+					"name": "get aeroportos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NDI2MzJ9.m_jQjiF8k_p1f9pef8NP8rMIuck9BpMwHdpE_PU7fOo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/aeroportos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"aeroportos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "voos",
+			"item": [
+				{
+					"name": "Get Voos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Voos passageiro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post cadastrarVoo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NDU5MzN9.pbyfPyKYC4jSt7arr-6fWLlsAqDXtpwSTuvCQyzqIvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n    \"dataHoraPartida\": \"01/10/2023 06:40:00\",\r\n    \"origemAeroporto\": 1,\r\n    \"destinoAeroporto\": 2,\r\n    \"flagVooCancelado\": false,\r\n    \"classes\": [\r\n        {\r\n            \"tipo\": \"Regular\",\r\n            \"capacidadeMaxima\": 200,\r\n            \"valorAssento\": 200\r\n        },\r\n        {\r\n            \"tipo\": \"Especial\",\r\n            \"capacidadeMaxima\": 200,\r\n            \"valorAssento\": 400\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar voos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": \"1\",\r\n    \"dataHoraPartida\": \"01/10/2023 06:40:00\",\r\n    \"origemAeroporto\": 1,\r\n    \"destinoAeroporto\": 2,\r\n    \"flagVooCancelado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voos?idVoo=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voos"
+							],
+							"query": [
+								{
+									"key": "idVoo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar voo",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/voos?idVoo=1&flagVooCancelado=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voos"
+							],
+							"query": [
+								{
+									"key": "idVoo",
+									"value": "1"
+								},
+								{
+									"key": "flagVooCancelado",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passageiro",
+			"item": []
+		},
+		{
+			"name": "Passagem",
+			"item": [
+				{
+					"name": "cadastrar Passagem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NDU5MzN9.pbyfPyKYC4jSt7arr-6fWLlsAqDXtpwSTuvCQyzqIvw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n            \"precoTotal\": 200,\r\n            \"classe\": 2,\r\n            \"passageiro\": null,\r\n            \"voo\": 1\r\n}     ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/passagem/cadastrapassagem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"cadastrapassagem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emitir voucher Passagem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1ODQ0NTJ9.zPvQubr_Wk2HZXWUzDLZIpCmNeXsWmDPoCesqr-cjqk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroVoo\": 200,\r\n            \"origem\": \"Salvador Bahia Airport\",\r\n            \"destino\": \"Aeroporto Internacional de São Paulo-Guarulhos\",\r\n            \"passageiro\": 1,\r\n            \"despachoBagagem\": true\r\n}     ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/passagem/emitirvoucher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"emitirvoucher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "emitir etiqueta bagagem Passagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n            \"numeroPassagem\": \"1\",\r\n            \"numeroBagagem\": \"1\",\r\n            \"nomePassageiro\": \"Renato Marcelo\"\r\n}  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/passagem/emitiretiquetabagagem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"emitiretiquetabagagem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar preços de passagem",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passagem/alterarpreco?idPassagem=1&precoTotal=550",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"alterarpreco"
+							],
+							"query": [
+								{
+									"key": "idPassagem",
+									"value": "1"
+								},
+								{
+									"key": "precoTotal",
+									"value": "550"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar compra de passagem",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passagem/cancelarcompra?idPassagemidPassagem=1&idVoo=550&cpf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"cancelarcompra"
+							],
+							"query": [
+								{
+									"key": "idPassagemidPassagem",
+									"value": "1"
+								},
+								{
+									"key": "idVoo",
+									"value": "550"
+								},
+								{
+									"key": "cpf",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver passageiros de um voo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passagem/passageirolistavoo?idVoo=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"passageirolistavoo"
+							],
+							"query": [
+								{
+									"key": "idVoo",
+									"value": "1"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obter passagens por cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passagem/passageirolistavoo?idVoo=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"passageirolistavoo"
+							],
+							"query": [
+								{
+									"key": "idVoo",
+									"value": "1"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obter passagens voo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NzU3MTF9.USbx3FnEBrd9C60r-_29VD2qaB3eGC8uR7QfZH-hyB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passagem/passagemvoo?origem=1&destino=2&data=01/10/2023 06:40:00&precoPassagem=200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"passagemvoo"
+							],
+							"query": [
+								{
+									"key": "origem",
+									"value": "1"
+								},
+								{
+									"key": "destino",
+									"value": "2"
+								},
+								{
+									"key": "data",
+									"value": "01/10/2023 06:40:00"
+								},
+								{
+									"key": "precoPassagem",
+									"value": "200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comprar passagem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NzU3MTF9.USbx3FnEBrd9C60r-_29VD2qaB3eGC8uR7QfZH-hyB0eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6InJlbmF0b2NlbG8iLCJleHAiOjE2OTM1NzU3MTF9.USbx3FnEBrd9C60r-_29VD2qaB3eGC8uR7QfZH-hyB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{ \r\n            \"idVoo\": 1,\r\n            \"idPassagem\": 1,\r\n            \"nome\": \"Renato\",\r\n            \"cpf\": \"999999999\",\r\n            \"flagBagagem\": true,\r\n            \"dataNascimento\": \"18/04/2001\"\r\n}] ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/passagem/comprarpassagem",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passagem",
+								"comprarpassagem"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "Registra Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n            \"login\": \"renatocelo\",\r\n            \"password\": \"123\",\r\n            \"role\": \"ADMIN\"  \r\n}     ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n            \"login\": \"renatocelo\",\r\n            \"password\": \"123\" \r\n}     ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
