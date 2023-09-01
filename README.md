@@ -226,5 +226,5 @@ Params:
 origem: 1
 destino: 2
 data: 01/10/2023 06:40:00
-precoPassagem: 200
+precoPassagem: 200(opcional)
 ```
