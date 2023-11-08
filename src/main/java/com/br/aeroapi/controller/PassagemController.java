@@ -100,7 +100,7 @@ public class PassagemController {
         boolean dentroDoLimite = Util.verificaTempoEmissao(tempoEmissao, voo.get().getDataHoraPartida());
 
         if (!dentroDoLimite) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro:  A emissão do voucher está fora do limite de 5 horas antes do voo!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro:  A emissão do voucher está fora do limite de 5 horas antes do voo!!");
         }
         passagemService.emitirVoucher(form);
         return ResponseEntity.status(HttpStatus.CREATED).build();
